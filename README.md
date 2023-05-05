@@ -11,3 +11,6 @@ npm install cors, dotenv, express, mongoose, nodemon
     "nodemon": "^2.0.22"
 
 .env used to save DATABASE_URI and PORT
+
+must remove .env from being commited
+git rm .env --cached
