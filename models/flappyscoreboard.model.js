@@ -25,6 +25,6 @@ const newScoreSchema = new Schema({
   },
 });
 
-const ScoreBoard = mongoose.model('NewScore', newScoreSchema);
+const FlappScoreBoard = mongoose.model('FlappyNewScore', newScoreSchema);
 
-module.exports = ScoreBoard;
+module.exports = FlappScoreBoard;

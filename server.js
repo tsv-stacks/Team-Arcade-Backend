@@ -18,10 +18,8 @@ connection.once('open', () => {
 });
 
 const scoreBoardRouter = require('./routes/scoreBoard');
-const usersRouter = require('./routes/users');
 
 app.use('/scoreboard', scoreBoardRouter);
-app.use('/users', usersRouter);
 
 app.listen(port, () => {
   console.log(`Server on port: ${port}`);
