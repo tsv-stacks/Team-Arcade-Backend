@@ -10,7 +10,7 @@ const uri = process.env.DATABASE_URI;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(uri);
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 20000 });
 
 const connection = mongoose.connection;
 connection.once('open', () => {
