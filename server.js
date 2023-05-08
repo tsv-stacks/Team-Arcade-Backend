@@ -2,12 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const admin = require('firebase-admin');
-const serviceAccount = require('./cert.json');
+// const admin = require('firebase-admin');
+// const serviceAccount = require('./cert.json');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
 
 const app = express();
 const port = process.env.PORT || 3020;

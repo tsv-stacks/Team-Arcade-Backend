@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const authorize = require('../middleware/authorize');
+// const authorize = require('../middleware/authorize');
 let FlappyScoreBoard = require('../models/flappyscoreboard.model');
 let RunScoreBoard = require('../models/runscoreboard.model');
 let TetrisScoreBoard = require('../models/tetrisscoreboard.model');
