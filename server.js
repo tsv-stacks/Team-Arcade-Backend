@@ -2,9 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const admin = require('firebase-admin');
+const serviceAccount = require('./cert.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3020;
 const uri = process.env.DATABASE_URI;
 
 app.use(cors());
@@ -17,7 +23,7 @@ connection.once('open', () => {
   console.log('MongoDB database connected');
 });
 
-const scoreBoardRouter = require('./routes/scoreBoard');
+const scoreBoardRouter = require('./src/routes/scoreBoard');
 
 app.use('/scoreboard', scoreBoardRouter);
 
