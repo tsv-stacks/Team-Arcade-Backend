@@ -8,7 +8,7 @@ let SteamScoreBoard = require('../models/steamscoreboard.model');
 router.route('/').get((req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.send(
-    '<h1>/flappy for FlappyScoreBoard<br/>/run for RunScoreBoard<br/>/tetris for TetrisScoreBoard</h1>'
+    '<h1>/flappy for FlappyScoreBoard<br/>/run for RunScoreBoard<br/>/tetris for TetrisScoreBoard<br/>/steampunk for SteamScoreBoard</h1>'
   );
 });
 
