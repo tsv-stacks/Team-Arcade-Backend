@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+// const helmet = require('helmet');
 const mongoose = require('mongoose');
 require('dotenv').config();
 // const admin = require('firebase-admin');
@@ -13,6 +14,7 @@ const app = express();
 const port = process.env.PORT || 3020;
 const uri = process.env.DATABASE_URI;
 
+// app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
