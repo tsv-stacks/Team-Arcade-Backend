@@ -3,6 +3,7 @@ const router = require('express').Router();
 let FlappyScoreBoard = require('../models/flappyscoreboard.model');
 let RunScoreBoard = require('../models/runscoreboard.model');
 let TetrisScoreBoard = require('../models/tetrisscoreboard.model');
+let SteamScoreBoard = require('../models/steamscoreboard.model');
 
 router.route('/').get((req, res) => {
   res.setHeader('Content-Type', 'text/html');
@@ -60,6 +61,24 @@ router.route('/tetris/add').post((req, res) => {
   const newTetrisScoreBoard = new TetrisScoreBoard({ name, score, img });
 
   newTetrisScoreBoard
+    .save()
+    .then(() => res.json('Score added!'))
+    .catch((err) => res.status(400).json('Error: ' + err));
+});
+
+router.route('/steampunk').get((req, res) => {
+  SteamScoreBoard.find()
+    .then((scoreBoard) => res.json(scoreBoard))
+    .catch((err) => res.status(400).json('Error: ' + err));
+});
+
+router.route('/steampunk/add').post((req, res) => {
+  const name = req.body.name;
+  const score = Number(req.body.score);
+  const img = req.body.img;
+  const newSteamScoreBoard = new SteamScoreBoard({ name, score, img });
+
+  newSteamScoreBoard
     .save()
     .then(() => res.json('Score added!'))
     .catch((err) => res.status(400).json('Error: ' + err));
