@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
+// const { validName } = require('./validName');
 
 const Schema = mongoose.Schema;
 
 const newScoreSchema = new Schema({
   name: {
     type: String,
+    minLength: 1,
     trim: true,
+    // validate: [validName, 'Please enter a valid name'],
     required: [true, 'Please enter a name'],
   },
   score: {
