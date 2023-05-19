@@ -8,7 +8,7 @@ const newScoreSchema = new Schema({
     minLength: 1,
     trim: true,
     enum: {
-      values: ['null', 'undefined'],
+      values: !['null', 'undefined'],
       message: '{VALUE} is not supported, Please enter a valid name',
     },
     required: [true, 'Please enter a name'],
