@@ -1,7 +1,0 @@
-const validName = (name) => {
-  if (name === 'null' || name === 'undefined') {
-    return false;
-  }
-};
-
-module.exports = validName;

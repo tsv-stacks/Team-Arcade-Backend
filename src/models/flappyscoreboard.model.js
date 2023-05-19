@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const { validName } = require('./validName');
 
 const Schema = mongoose.Schema;
 
@@ -8,7 +7,10 @@ const newScoreSchema = new Schema({
     type: String,
     minLength: 1,
     trim: true,
-    // validate: [validName, 'Please enter a valid name'],
+    enum: {
+      values: ['null', 'undefined'],
+      message: '{VALUE} is not supported, Please enter a valid name',
+    },
     required: [true, 'Please enter a name'],
   },
   score: {
