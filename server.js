@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3020;
 const uri = process.env.DATABASE_URI;
 
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
@@ -17,11 +19,9 @@ connection.once('open', () => {
   console.log('MongoDB database connected');
 });
 
-const scoreBoardRouter = require('./routes/scoreBoard');
-const usersRouter = require('./routes/users');
+const scoreBoardRouter = require('./src/routes/scoreBoard');
 
 app.use('/scoreboard', scoreBoardRouter);
-app.use('/users', usersRouter);
 
 app.listen(port, () => {
   console.log(`Server on port: ${port}`);

@@ -1,0 +1,16 @@
+const admin = require('firebase-admin');
+
+const authorize = async (req, res, next) => {
+  const token = req.headers.authorization?.split('Bearer ')[1];
+
+  try {
+    const decodedToken = await admin.auth().verifyIDToken(token);
+    req.user = decodedToken;
+    next();
+  } catch (error) {
+    console.log(error);
+    return res.status(401).send('Unauthorized');
+  }
+};
+
+module.exports = authorize;

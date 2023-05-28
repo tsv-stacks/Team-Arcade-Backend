@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const newScoreSchema = new Schema({
   name: {
     type: String,
+    minLength: 1,
     trim: true,
     required: [true, 'Please enter a name'],
   },
@@ -25,6 +26,6 @@ const newScoreSchema = new Schema({
   },
 });
 
-const ScoreBoard = mongoose.model('NewScore', newScoreSchema);
+const SteamScoreBoard = mongoose.model('SteamNewScore', newScoreSchema);
 
-module.exports = ScoreBoard;
+module.exports = SteamScoreBoard;
